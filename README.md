@@ -4,4 +4,4 @@ or base for creating web applications.
 Start the project by running the following command:
 
 ```bash
-npm run dev
+npm start
