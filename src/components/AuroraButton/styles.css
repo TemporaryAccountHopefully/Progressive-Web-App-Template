@@ -1,0 +1,65 @@
+.aurora-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 13px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(110deg, #6155ed, #a855f7, #3478f6);
+  background-size: 200% 100%;
+  box-shadow: 0 4px 15px rgba(99, 82, 237, 0.3);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-position 400ms ease;
+}
+
+.aurora-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.35) 50%, transparent 75%);
+  transform: translateX(-100%);
+  transition: transform 600ms ease;
+  pointer-events: none;
+}
+
+.aurora-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow: 0 8px 25px rgba(99, 82, 237, 0.45);
+}
+
+.aurora-button:hover:not(:disabled)::before {
+  transform: translateX(100%);
+}
+
+.aurora-button:active:not(:disabled) {
+  transform: scale(.97);
+}
+
+.aurora-button:focus-visible {
+  outline: 3px solid #a78bfa;
+  outline-offset: 4px;
+}
+
+.aurora-button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.aurora-button span {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-button,
+  .aurora-button::before {
+    transition: none;
+  }
+}
